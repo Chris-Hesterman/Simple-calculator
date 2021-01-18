@@ -22,10 +22,11 @@ function Nums(props) {
   const handleClick = (e) => {
     e.preventDefault();
     if (e.target.id !== 'ulist') {
-      console.log('clicked', e.target.className[e.target.className.length - 1]);
+      props.getInput(e.target.classList[e.target.classList.length - 1]);
     }
   };
-  let nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, '.'];
+  let nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, '.', 'CLEAR'];
+
   nums = nums.map((num) => {
     return (
       <li key={num}>

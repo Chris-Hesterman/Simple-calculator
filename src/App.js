@@ -22,14 +22,40 @@ const KeypadStyled = styled.div`
   justify-content: space-between;
 `;
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      string: '',
+      total: 0
+    };
+    this.getInput = this.getInput.bind(this);
+  }
+
+  getInput(char) {
+    if (char === undefined) {
+      return;
+    }
+    if (char === '=') {
+      this.setState((prevState) => {
+        // eslint-disable-next-line no-eval
+        const total = eval(prevState.string);
+        return { string: total };
+      });
+    } else if (char === 'CLEAR') {
+      this.setState({ string: '' });
+    } else {
+      this.setState((prevState) => {
+        return { string: prevState.string.concat(char) };
+      });
+    }
+  }
   render() {
     return (
       <CalcStyled>
         <h1>Calculator</h1>
-        <Display />
-        <KeypadStyled>
-          <Nums />
-          <Operators />
+        <Display readout={this.state.string || this.state.total} />
+          <Nums getInput={this.getInput} />
+          <Operators getInput={this.getInput} />
         </KeypadStyled>
       </CalcStyled>
     );

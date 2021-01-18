@@ -20,6 +20,9 @@ const KeyStyled = styled.button`
   box-shadow: 1px 1px 2px black;
   font-size: 1.5rem;
   transition: all 0.025s linear;
+  &.CLEAR {
+    font-size: 1rem;
+  }
   &:active {
     transform: translate(2px, 2px);
     box-shadow: none;

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const DisplayStyled = styled.div`
@@ -12,18 +12,12 @@ const DisplayStyled = styled.div`
   margin-bottom: 25px;
 `;
 
-export default class Display extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      display: ''
-    };
-  }
-  render() {
-    return (
-      <DisplayStyled>
-        <p>Display</p>
-      </DisplayStyled>
-    );
-  }
-}
+const Display = (props) => {
+  return (
+    <DisplayStyled>
+      <p>{props.readout}</p>
+    </DisplayStyled>
+  );
+};
+
+export default Display;

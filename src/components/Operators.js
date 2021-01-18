@@ -15,7 +15,7 @@ const ButtonStyled = styled.button`
   width: 60px;
   height: calc((0.25 * (156px)));
   margin: 2px;
-  border: 1px solid #999;
+  border: 1px solid #666;
   border-radius: 5px;
   box-shadow: 1px 1px 2px black;
   font-size: 1.5rem;
@@ -41,9 +41,9 @@ const OperatorsStyled = styled.div`
 `;
 function Operators(props) {
   const handleClick = (e) => {
-    console.log(e.target.id);
+    props.getInput(e.target.id);
   };
-  let ops = ['x', '/', '+', '-', '='];
+  let ops = ['*', '/', '+', '-', '='];
   ops = ops.map((operator) => {
     return (
       <ButtonStyled key={operator} id={operator} onClick={handleClick}>
