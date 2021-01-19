@@ -41,7 +41,7 @@ const OperatorsStyled = styled.div`
 `;
 function Operators(props) {
   const handleClick = (e) => {
-    props.getInput(e.target.id);
+    props.getInput(e, e.target.id);
   };
   let ops = ['*', '/', '+', '-', '='];
   ops = ops.map((operator) => {

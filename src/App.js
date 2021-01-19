@@ -12,6 +12,7 @@ const CalcStyled = styled.div`
   align-items: center;
   margin-top: 50px;
   border: 2px solid black;
+  border-radius: 25px;
   font-family: Arial, Helvetica, sans-serif;
   padding: 0 30px 50px 30px;
 `;
@@ -31,22 +32,31 @@ class App extends React.Component {
     this.getInput = this.getInput.bind(this);
   }
 
-  getInput(char) {
+  getInput(e, char) {
+    console.log(e);
     if (char === undefined) {
       return;
     }
-    if (char === '=') {
-      this.setState((prevState) => {
-        // eslint-disable-next-line no-eval
-        const total = eval(prevState.string);
-        return { string: total };
-      });
+    if (char === '=' && Number(this.state.string.slice(-1)[0])) {
+      console.log(Number(this.state.string.slice(-1)[0]));
+      if (
+        this.state.string.slice(0, 1)[0] === '-' ||
+        typeof +this.state.string.slice(0, 1)[0] === 'number'
+      ) {
+        this.setState((prevState) => {
+          // eslint-disable-next-line no-eval
+          const total = eval(prevState.string);
+          return { string: `${total}` };
+        });
+      }
     } else if (char === 'CLEAR') {
       this.setState({ string: '' });
     } else {
-      this.setState((prevState) => {
-        return { string: prevState.string.concat(char) };
-      });
+      if (char !== '=') {
+        this.setState((prevState) => {
+          return { string: prevState.string.concat(char) };
+        });
+      }
     }
   }
   render() {
@@ -54,7 +64,7 @@ class App extends React.Component {
       <CalcStyled>
         <h1>Calculator</h1>
         <Display readout={this.state.string || this.state.total} />
-        <KeypadStyled>
+        <KeypadStyled focus>
           <Nums getInput={this.getInput} />
           <Operators getInput={this.getInput} />
         </KeypadStyled>
