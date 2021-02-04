@@ -11,16 +11,17 @@ const CalcStyled = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 50px;
-  border: 2px solid black;
-  border-radius: 25px;
+  border: 1px solid black;
+  border-radius: 10px;
   font-family: Arial, Helvetica, sans-serif;
   padding: 0 30px 50px 30px;
+  box-shadow: 7px 7px 5px darkgrey;
 `;
 
 const StyledH1 = styled.h1`
   color: red;
-  text-shadow: 1px 1px 0.5px black, 0 1px 0.5px black, 1px 0 0.5px black,
-    -1px 0 0.5px black, -1px -1px 0.5px black, 0 -1px 0.5px black;
+  text-shadow: 1px 1px 1px black, 0 1px 1px black, 1px 0 1px black,
+    -1px 0 1px black, -1px -1px 1px black, 0 -1px 1px black;
 `;
 const KeypadStyled = styled.div`
   display: flex;
@@ -67,7 +68,7 @@ class App extends React.Component {
   render() {
     return (
       <CalcStyled>
-        <StyledH1>Calculator of Doom</StyledH1>
+        <StyledH1>Simple Calculator</StyledH1>
         <Display readout={this.state.string || this.state.total} />
         <KeypadStyled focus>
           <Nums getInput={this.getInput} />
