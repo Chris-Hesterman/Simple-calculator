@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Display from './components/Display.js';
 import Nums from './components/Nums.js';
@@ -28,55 +28,48 @@ const KeypadStyled = styled.div`
   width: 22.25rem;
   justify-content: space-between;
 `;
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      string: '',
-      total: 0
-    };
-    this.getInput = this.getInput.bind(this);
-  }
+const App = (props) => {
+  const [string, setString] = useState('');
+  const [total, setTotal] = useState(0);
 
-  getInput(e, char) {
+  const getInput = (e, char) => {
     console.log(e);
     if (char === undefined) {
       return;
     }
-    if (char === '=' && Number(this.state.string.slice(-1)[0])) {
-      console.log(Number(this.state.string.slice(-1)[0]));
+    if (char === '=' && Number(string.slice(-1)[0])) {
+      console.log(Number(string.slice(-1)[0]));
       if (
-        this.state.string.slice(0, 1)[0] === '-' ||
-        typeof +this.state.string.slice(0, 1)[0] === 'number'
+        string.slice(0, 1)[0] === '-' ||
+        typeof +string.slice(0, 1)[0] === 'number'
       ) {
-        this.setState((prevState) => {
+        setString((string) => {
           // eslint-disable-next-line no-eval
-          const total = eval(prevState.string);
-          return { string: `${total}` };
+          const total = eval(string);
+          return `${total}`;
         });
       }
     } else if (char === 'CLEAR') {
-      this.setState({ string: '' });
+      setString('');
     } else {
       if (char !== '=') {
-        this.setState((prevState) => {
-          return { string: prevState.string.concat(char) };
+        setString((string) => {
+          return string.concat(char);
         });
       }
     }
-  }
-  render() {
-    return (
-      <CalcStyled>
-        <StyledH1>Simple Calculator</StyledH1>
-        <Display readout={this.state.string || this.state.total} />
-        <KeypadStyled focus>
-          <Nums getInput={this.getInput} />
-          <Operators getInput={this.getInput} />
-        </KeypadStyled>
-      </CalcStyled>
-    );
-  }
-}
+  };
+
+  return (
+    <CalcStyled>
+      <StyledH1>Simple Calculator</StyledH1>
+      <Display readout={string || total} />
+      <KeypadStyled focus>
+        <Nums getInput={getInput} />
+        <Operators getInput={getInput} />
+      </KeypadStyled>
+    </CalcStyled>
+  );
+};
 
 export default App;
