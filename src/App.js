@@ -17,6 +17,11 @@ const CalcStyled = styled.div`
   padding: 0 30px 50px 30px;
 `;
 
+const StyledH1 = styled.h1`
+  color: red;
+  text-shadow: 1px 1px 0.5px black, 0 1px 0.5px black, 1px 0 0.5px black,
+    -1px 0 0.5px black, -1px -1px 0.5px black, 0 -1px 0.5px black;
+`;
 const KeypadStyled = styled.div`
   display: flex;
   width: 22.25rem;
@@ -62,7 +67,7 @@ class App extends React.Component {
   render() {
     return (
       <CalcStyled>
-        <h1>Calculator</h1>
+        <StyledH1>Calculator of Doom</StyledH1>
         <Display readout={this.state.string || this.state.total} />
         <KeypadStyled focus>
           <Nums getInput={this.getInput} />
