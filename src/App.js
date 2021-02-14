@@ -28,9 +28,9 @@ const KeypadStyled = styled.div`
   width: 22.25rem;
   justify-content: space-between;
 `;
+
 const App = (props) => {
   const [string, setString] = useState('');
-  const [total, setTotal] = useState(0);
 
   const getInput = (e, char) => {
     console.log(e);
@@ -63,7 +63,7 @@ const App = (props) => {
   return (
     <CalcStyled>
       <StyledH1>Simple Calculator</StyledH1>
-      <Display readout={string || total} />
+      <Display readout={string === '' ? '0' : string} />
       <KeypadStyled focus>
         <Nums getInput={getInput} />
         <Operators getInput={getInput} />

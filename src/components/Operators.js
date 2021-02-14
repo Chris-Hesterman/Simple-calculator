@@ -39,7 +39,8 @@ const OperatorsStyled = styled.div`
   padding-bottom: 3px;
   outline: none;
 `;
-function Operators(props) {
+
+const Operators = (props) => {
   const handleClick = (e) => {
     props.getInput(e, e.target.id);
   };
@@ -53,6 +54,6 @@ function Operators(props) {
   });
 
   return <OperatorsStyled>{ops}</OperatorsStyled>;
-}
+};
 
 export default Operators;

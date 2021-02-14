@@ -18,13 +18,13 @@ const ListStyled = styled.ul`
   width: 100%;
 `;
 
-function Nums(props) {
+const Nums = (props) => {
   const handleClick = (e) => {
     e.preventDefault();
-    if (e.which) {
-      console.log(e.which);
-    }
-    if (e.target.id !== 'ulist') {
+    if (e.which && !isNaN(Number(String.fromCharCode(e.which)))) {
+      console.log(String.fromCharCode(e.which));
+      props.getInput(e, String.fromCharCode(e.which));
+    } else if (e.target.id !== 'ulist') {
       props.getInput(e, e.target.classList[e.target.classList.length - 1]);
     }
   };
@@ -44,6 +44,6 @@ function Nums(props) {
       </ListStyled>
     </KeypadStyled>
   );
-}
+};
 
 export default Nums;
