@@ -18,7 +18,7 @@ const ListStyled = styled.ul`
   width: 100%;
 `;
 
-function Nums(props) {
+const Nums = (props) => {
   const handleClick = (e) => {
     e.preventDefault();
     if (e.which) {
@@ -44,6 +44,6 @@ function Nums(props) {
       </ListStyled>
     </KeypadStyled>
   );
-}
+};
 
 export default Nums;

@@ -30,8 +30,8 @@ const KeyStyled = styled.button`
   }
 `;
 
-function Key(props) {
+const Key = (props) => {
   return <KeyStyled className={`${props.num}`}>{props.num}</KeyStyled>;
-}
+};
 
 export default Key;
