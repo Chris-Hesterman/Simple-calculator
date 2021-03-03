@@ -27,8 +27,8 @@ const PStyled = styled.p`
 
 const Display = (props) => {
   return (
-    <DisplayStyled>
-      <PStyled>{props.readout}</PStyled>
+    <DisplayStyled title="display">
+      <PStyled title="readout">{props.readout}</PStyled>
     </DisplayStyled>
   );
 };

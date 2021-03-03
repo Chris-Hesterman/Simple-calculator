@@ -21,10 +21,12 @@ const ListStyled = styled.ul`
 const Nums = (props) => {
   const handleClick = (e) => {
     e.preventDefault();
-    if (e.which) {
-      console.log(e.which);
-    }
-    if (e.target.id !== 'ulist') {
+    if (e.key) {
+      console.log(e.key);
+      if (!isNaN(Number(e.key))) {
+        props.getInput(e, e.key);
+      }
+    } else if (e.target.id !== 'ulist') {
       props.getInput(e, e.target.classList[e.target.classList.length - 1]);
     }
   };
@@ -37,8 +39,9 @@ const Nums = (props) => {
       </li>
     );
   });
+
   return (
-    <KeypadStyled>
+    <KeypadStyled title="numberKeys">
       <ListStyled onClick={handleClick} onKeyDown={handleClick} id="ulist">
         {nums}
       </ListStyled>

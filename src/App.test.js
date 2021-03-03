@@ -1,8 +1,18 @@
-import { render, screen } from '@testing-library/react';
+import React from 'react';
+import { render, screen, within } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe('App', () => {
+  test('renders App component', () => {
+    render(<App />);
+
+    const keypad = screen.getByTitle('keypad');
+    const numberKeys = within(keypad).getByTitle('numberKeys');
+    const operatorKeys = within(keypad).getByTitle('operatorKeys');
+
+    expect(screen.getByTitle('display')).toBeInTheDocument();
+    expect(screen.getByText('Simple Calculator')).toBeInTheDocument();
+    expect(numberKeys).toBeInTheDocument();
+    expect(operatorKeys).toBeInTheDocument();
+  });
 });

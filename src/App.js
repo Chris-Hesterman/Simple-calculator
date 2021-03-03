@@ -69,8 +69,11 @@ class App extends React.Component {
     return (
       <CalcStyled>
         <StyledH1>Simple Calculator</StyledH1>
-        <Display readout={this.state.string || this.state.total} />
-        <KeypadStyled focus>
+        <Display
+          title="display"
+          readout={this.state.string || this.state.total}
+        />
+        <KeypadStyled title="keypad">
           <Nums getInput={this.getInput} />
           <Operators getInput={this.getInput} />
         </KeypadStyled>
