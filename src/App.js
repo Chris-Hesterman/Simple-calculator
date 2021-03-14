@@ -39,7 +39,6 @@ class App extends React.Component {
   }
 
   getInput(e, char) {
-    console.log(e);
     if (char === undefined) {
       return;
     }

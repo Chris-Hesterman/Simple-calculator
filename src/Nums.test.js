@@ -1,10 +1,8 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from './App';
 import Nums from './components/Nums';
-import Display from './components/Display';
-import Key from './components/Key';
 
 describe('Nums', () => {
   test('it renders keys correctly properly', () => {
@@ -19,6 +17,24 @@ describe('Nums', () => {
   test('it responds to user input', () => {
     render(<App />);
 
+    expect(screen.getByTitle('readout')).toHaveTextContent('0');
+
+    userEvent.click(screen.getByText('9'));
+    expect(screen.getByTitle('readout')).toHaveTextContent('9');
+
+    userEvent.click(screen.getByText('5'));
+    expect(screen.getByTitle('readout')).toHaveTextContent('95');
+
+    userEvent.click(screen.getByText('3'));
+    expect(screen.getByTitle('readout')).toHaveTextContent('953');
+
+    userEvent.click(screen.getByText('.'));
+    expect(screen.getByTitle('readout')).toHaveTextContent('953.');
+
+    userEvent.click(screen.getByText('4'));
+    expect(screen.getByTitle('readout')).toHaveTextContent('953.4');
+
+    userEvent.click(screen.getByText('CLEAR'));
     expect(screen.getByTitle('readout')).toHaveTextContent('0');
   });
 });

@@ -22,7 +22,6 @@ const Nums = (props) => {
   const handleClick = (e) => {
     e.preventDefault();
     if (e.key) {
-      console.log(e.key);
       if (!isNaN(Number(e.key))) {
         props.getInput(e, e.key);
       }
