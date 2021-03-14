@@ -60,7 +60,7 @@ const App = (props) => {
   };
 
   return (
-    <CalcStyled>
+    <CalcStyled title="calculatorApp">
       <StyledH1>Simple Calculator</StyledH1>
       <Display title="readout" readout={string === '' ? '0' : string} />
       <KeypadStyled focus title="keypad">
