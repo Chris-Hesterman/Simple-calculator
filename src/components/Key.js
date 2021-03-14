@@ -31,20 +31,7 @@ const KeyStyled = styled.button`
 `;
 
 const Key = (props) => {
-  return (
-    <KeyStyled
-      data-testid={
-        Number.isInteger(+props.num)
-          ? 'number'
-          : props.num === '.'
-          ? 'decimal'
-          : 'CLEAR'
-      }
-      className={`${props.num}`}
-    >
-      {props.num}
-    </KeyStyled>
-  );
+  return <KeyStyled className={`${props.num}`}>{props.num}</KeyStyled>;
 };
 
 export default Key;

@@ -52,7 +52,7 @@ const Operators = (props) => {
     );
   });
 
-  return <OperatorsStyled title="operatorKeys">{ops}</OperatorsStyled>;
+  return <OperatorsStyled>{ops}</OperatorsStyled>;
 };
 
 export default Operators;
