@@ -1,12 +1,12 @@
-## SIMPLE CALCULATOR
+## SIMPLE REACT CALCULATOR
 
 ### Why?
 
-> Never made a calculator with react
+> Never made a calculator with React
 
 > Wanted to get acquainted with Hooks
 
-> Wanted to learn React-Testing-library
+> Wanted to learn React-Testing-Library
 
 ### Usage
 
