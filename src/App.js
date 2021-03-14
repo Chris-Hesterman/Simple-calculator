@@ -33,12 +33,11 @@ const App = (props) => {
   const [string, setString] = useState('');
 
   const getInput = (e, char) => {
-    console.log(e);
     if (char === undefined) {
       return;
     }
     if (char === '=' && Number(string.slice(-1)[0])) {
-      console.log(Number(string.slice(-1)[0]));
+      // console.log(Number(string.slice(-1)[0]));
       if (
         string.slice(0, 1)[0] === '-' ||
         typeof +string.slice(0, 1)[0] === 'number'
@@ -63,8 +62,8 @@ const App = (props) => {
   return (
     <CalcStyled>
       <StyledH1>Simple Calculator</StyledH1>
-      <Display readout={string === '' ? '0' : string} />
-      <KeypadStyled focus>
+      <Display title="readout" readout={string === '' ? '0' : string} />
+      <KeypadStyled focus title="keypad">
         <Nums getInput={getInput} />
         <Operators getInput={getInput} />
       </KeypadStyled>
