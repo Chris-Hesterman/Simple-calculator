@@ -36,6 +36,14 @@ const App = (props) => {
     if (char === undefined) {
       return;
     }
+    if (char === '√') {
+      setString((string) => {
+        // const subtotal = eval(string.slice(-1));
+        // const sqrRoot = eval(subtotal.toString() + '√');
+
+        return 'test';
+      });
+    }
     if (char === '=' && Number(string.slice(-1)[0])) {
       // console.log(Number(string.slice(-1)[0]));
       if (
@@ -51,7 +59,7 @@ const App = (props) => {
     } else if (char === 'CLEAR') {
       setString('');
     } else {
-      if (char !== '=') {
+      if (char !== '=' && char !== '√') {
         setString((string) => {
           return string.concat(char);
         });
