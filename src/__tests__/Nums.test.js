@@ -1,13 +1,12 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import App from './App';
-import Nums from './components/Nums';
+import App from '../App';
+import Nums from '../components/Nums';
 
 describe('Nums', () => {
   test('it renders keys correctly properly', () => {
     render(<Nums />);
-    screen.debug();
 
     expect(screen.getAllByTestId('number')).toHaveLength(10);
     expect(screen.getByTestId('decimal')).toBeInTheDocument();

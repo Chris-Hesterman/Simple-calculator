@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Display from './components/Display';
+import Display from '../components/Display';
 
 describe('Display', () => {
   test('it renders correctly and displays based on input (via props)', () => {

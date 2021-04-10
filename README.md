@@ -12,7 +12,7 @@
 
 > download repo
 
-> navigate to 'calculator' dir
+> navigate to 'calculator' dir \*note - lowecase 'c'
 
 > run 'npm start'
 

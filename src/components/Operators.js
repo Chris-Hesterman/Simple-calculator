@@ -43,7 +43,7 @@ const Operators = (props) => {
   const handleClick = (e) => {
     props.getInput(e, e.target.id);
   };
-  let ops = ['*', '/', '+', '-', '='];
+  let ops = ['*', '/', '+', '-', '√', '='];
   ops = ops.map((operator) => {
     return (
       <ButtonStyled key={operator} id={operator} onClick={handleClick}>
