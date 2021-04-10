@@ -39,8 +39,6 @@ describe('Operators', () => {
     expect(screen.getByTitle('readout')).not.toHaveTextContent('7');
 
     userEvent.click(screen.getByText('√'));
-    expect(screen.getByTitle('readout')).toHaveTextContent('9√');
-    userEvent.click(screen.getByText('='));
     expect(screen.getByTitle('readout')).toHaveTextContent('3');
   });
 });

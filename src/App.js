@@ -38,10 +38,9 @@ const App = (props) => {
     }
     if (char === '√') {
       setString((string) => {
-        // const subtotal = eval(string.slice(-1));
-        // const sqrRoot = eval(subtotal.toString() + '√');
+        const testResult = Math.sqrt(eval(string));
 
-        return 'test';
+        return `${testResult}`;
       });
     }
     if (char === '=' && Number(string.slice(-1)[0])) {
