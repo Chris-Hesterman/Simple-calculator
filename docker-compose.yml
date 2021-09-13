@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  composed:
+    container_name: frontend
+    build: ./
+    command: npm start
+    working_dir: /usr/src/calculator
+    ports:
+      - '3000:3000'

@@ -6,4 +6,6 @@ COPY ./ ./
 
 RUN npm install
 
+EXPOSE 49153
+
 CMD ["/bin/bash"]
