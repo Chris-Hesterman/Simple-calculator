@@ -1,7 +1,6 @@
-import React from 'react';
 import styled from 'styled-components';
 
-const DisplayStyled = styled.div`
+export const DisplayStyled = styled.div`
   box-sizing: border-box;
   display: flex;
   justify-content: flex-end;
@@ -19,18 +18,8 @@ const DisplayStyled = styled.div`
   overflow-x: hidden;
 `;
 
-const PStyled = styled.p`
+export const PStyled = styled.p`
   margin-top: 0;
   margin-bottom: 0;
   text-align: middle;
 `;
-
-const Display = (props) => {
-  return (
-    <DisplayStyled title="display">
-      <PStyled title="readout">{props.readout}</PStyled>
-    </DisplayStyled>
-  );
-};
-
-export default Display;

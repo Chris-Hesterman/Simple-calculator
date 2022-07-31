@@ -1,22 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
-import Key from './Key.js';
-
-const KeypadStyled = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 15.75rem;
-`;
-
-const ListStyled = styled.ul`
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 100%;
-`;
+import Key from '../Key/Key';
+import { KeypadStyled, ListStyled } from './NumsStyles';
+import { createList } from '../../utils';
 
 const Nums = (props) => {
   const handleClick = (e) => {
@@ -30,18 +15,12 @@ const Nums = (props) => {
   };
   let nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, '.', 'CLEAR'];
 
-  nums = nums.map((num) => {
-    return (
-      <li key={num}>
-        <Key num={num} />
-      </li>
-    );
-  });
+  const numKeys = createList(nums, 'num', Key);
 
   return (
     <KeypadStyled title="numberKeys">
       <ListStyled onClick={handleClick} onKeyDown={handleClick} id="ulist">
-        {nums}
+        {numKeys}
       </ListStyled>
     </KeypadStyled>
   );

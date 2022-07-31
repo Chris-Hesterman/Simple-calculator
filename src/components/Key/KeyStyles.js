@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import React from 'react';
 
-const KeyStyled = styled.button`
+export const KeyStyled = styled.button`
   display: flex;
   background: rgb(255, 255, 255);
   background: radial-gradient(
@@ -29,22 +28,3 @@ const KeyStyled = styled.button`
     border: 1px solid #333;
   }
 `;
-
-const Key = (props) => {
-  return (
-    <KeyStyled
-      className={`${props.num}`}
-      data-testid={
-        Number.isInteger(+props.num)
-          ? 'number'
-          : props.num === '.'
-          ? 'decimal'
-          : 'CLEAR'
-      }
-    >
-      {props.num}
-    </KeyStyled>
-  );
-};
-
-export default Key;

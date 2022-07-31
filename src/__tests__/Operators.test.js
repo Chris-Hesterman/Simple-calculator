@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import Operators from '../components/Operators';
+import Operators from '../components/Operators/Operators';
 import App from '../App';
 
 describe('Operators', () => {
@@ -39,8 +39,6 @@ describe('Operators', () => {
     expect(screen.getByTitle('readout')).not.toHaveTextContent('7');
 
     userEvent.click(screen.getByText('√'));
-    expect(screen.getByTitle('readout')).toHaveTextContent('9√');
-    userEvent.click(screen.getByText('='));
     expect(screen.getByTitle('readout')).toHaveTextContent('3');
   });
 });
