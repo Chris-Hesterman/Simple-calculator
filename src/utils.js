@@ -1,14 +1,18 @@
 import { useState } from 'react';
 
-export const createList = (data, dataName, Component) => {
+export const createList = (data, dataName, ButtonComponent, LiComponent) => {
   return data.map((item) => {
     let props = {};
 
     props[dataName] = item;
 
-    return (
+    return LiComponent ? (
+      <LiComponent key={item}>
+        <ButtonComponent {...props}>{item}</ButtonComponent>
+      </LiComponent>
+    ) : (
       <li key={item}>
-        <Component {...props} />
+        <ButtonComponent {...props}>{item}</ButtonComponent>
       </li>
     );
   });

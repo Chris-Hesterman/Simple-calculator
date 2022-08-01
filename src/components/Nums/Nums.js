@@ -7,7 +7,6 @@ const Nums = (props) => {
   const handleClick = (e) => {
     e.preventDefault();
     if (e.which && !isNaN(Number(String.fromCharCode(e.which)))) {
-      // console.log(String.fromCharCode(e.which));
       props.getInput(e, String.fromCharCode(e.which));
     } else if (e.target.id !== 'ulist') {
       props.getInput(e, e.target.classList[e.target.classList.length - 1]);
